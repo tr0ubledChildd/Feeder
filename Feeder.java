@@ -21,6 +21,10 @@ public class Feeder {
             if(currentFood < 0) currentFood = 0;
         }
     }
+    public String toString()
+    {
+        return "Current Food: " + currentFood;
+    }
 
     /**
      * Returns the number of days birds or a bear found food to eat at the
@@ -29,8 +33,20 @@ public class Feeder {
      */
     public int simulateManyDays(int numBirds, int numDays) 
     {
-        return 0;
+        int days = 0;
+        while(numDays > 0)
+        {
+          if(currentFood == 0) {
+            return days;
+          }
+          simulateOneDay(numBirds);
+          days++;
+
+        }
+        return days;
+
     }
+
     public int getCurrentFood()
     {
       return currentFood;
@@ -41,4 +57,3 @@ public class Feeder {
     }
     public Feeder() {}
 }
-
